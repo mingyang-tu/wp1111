@@ -1,0 +1,291 @@
+* {
+    box-sizing: border-box;
+}
+
+html, 
+body {
+    width: 100%;
+    height: 100%;
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: white;
+    background-color: rgb(32, 33, 36);
+    overflow: auto;
+}
+
+.red-background-color {
+    background-color: rgb(255, 72, 64);
+}
+.grey-background-color {
+    background-color: rgb(62, 64, 67);
+}
+.transparent-background-color {
+    background-color: transparent;
+}
+
+#GM-root {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#GM-main {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+}
+#GM-footer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+#GM-host-block {
+    height: 100%;
+    flex: 2;
+    position: relative;
+}
+#GM-people-block {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+/***** buttons *****/
+
+.person-mute-block {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.2rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    border-radius: 50%;
+    background-color: rgb(53, 55, 58);
+}
+.person-close-block {
+    width: 1.1rem;
+    height: 1.1rem;
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.buttons {
+    height: 100%;
+}
+
+/***** host *****/
+
+#host {
+    width: 10rem;
+    height: 10rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+#host-buttons {
+    width: 8rem;
+    object-fit: cover;
+    padding: 0.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2rem;
+    background-color: rgb(62, 64, 67);
+    opacity: 0;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+#GM-host-block:hover #host-buttons {
+    opacity: 0.7;
+}
+#GM-host-block:hover #host-buttons:hover {
+    opacity: 0.95;
+}
+
+.space-1 {
+    width: 1em;
+}
+#host-name {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/***** person *****/
+
+.person {
+    margin: 0.5%;
+    border-radius: 5px;
+    background-color: rgb(62, 64, 67);
+    position: relative;
+}
+.person-photo-block {
+    height: 40%;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.person-name-block {
+    margin: 0;
+    position: absolute;
+    bottom: 0.4rem;
+    left: 0.8rem;
+    font-size: 12px;
+}
+
+.person-buttons {
+    width: 8rem;
+    object-fit: cover;
+    padding: 0.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2rem;
+    background-color: rgb(32, 33, 36);
+    opacity: 0;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+.person:hover .person-buttons {
+    opacity: 0.7;
+}
+.person:hover .person-buttons:hover {
+    opacity: 0.95;
+}
+
+/***** footer *****/
+
+#GM-footer-left {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#GM-footer-mid {
+    height: 100%;
+    flex: 1.5;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#GM-footer-right {
+    height: 100%;
+    flex: 1;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.footer-img-block {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+    margin-right: 0.8rem;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.footer-hang-up-block {
+    width: 3.5rem;
+    height: 2.5rem;
+    padding: 0.4rem;
+    background-color: rgb(255, 72, 64);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.footer-img-block > input[type="checkbox"] {
+    display: none;
+}
+.footer-img-block > label {
+    width: 102%;
+    height: 102%;
+    padding: 0.52rem;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(62, 64, 67);
+    opacity: 0;
+}
+.footer-img-block > input[type="checkbox"]:checked + label {
+    opacity: 1;
+}
+
+#add-button-block {
+    width: 3rem;
+    height: 3rem;
+    background-color: black;
+    cursor: pointer;
+}
+
+.button-tags {
+    text-align: center;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgb(62, 64, 67);
+    position: absolute;
+    top: -1rem;
+    transform: translate(0%, -100%);
+    font-size: 10px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+    user-select: none;
+}
+.footer-img-block:hover .button-tags {
+    visibility: visible;
+    opacity: 0.95;
+}
+.footer-hang-up-block:hover .button-tags {
+    visibility: visible;
+    opacity: 0.95;
+}

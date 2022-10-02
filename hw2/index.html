@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Fake Google Meet</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <div id="GM-root">
+            <section id="GM-main">
+            </section>
+
+            <footer id="GM-footer">
+                <div id="GM-footer-left">
+                    <p id="clock"></p>
+                </div>
+                <div id="GM-footer-mid">
+                    <div id="mute-button" class="footer-img-block red-background-color">
+                        <img src="figure/mute.png" class="buttons" />
+                        <input id="mute-function" type="checkbox" />
+                        <label for="mute-function">
+                            <img src="figure/no-mute.png" class="buttons" />
+                        </label>
+                        <p class="button-tags">開啟麥克風</p>
+                    </div>
+                    <div class="footer-img-block red-background-color">
+                        <img src="figure/no-video.png" class="buttons" />
+                        <p class="button-tags">開啟攝影機</p>
+                    </div>
+                    <div class="footer-img-block grey-background-color">
+                        <img src="figure/hand.png" class="buttons" />
+                        <p class="button-tags">舉手</p>
+                    </div>
+                    <div class="footer-img-block grey-background-color">
+                        <img src="figure/present.png" class="buttons" />
+                        <p class="button-tags">立即分享螢幕畫面</p>
+                    </div>
+                    <div class="footer-img-block grey-background-color">
+                        <img src="figure/more-info.png" class="buttons" />
+                        <p class="button-tags">更多選項</p>
+                    </div>
+                    <div class="footer-hang-up-block">
+                        <img src="figure/hang-up.png" class="buttons" />
+                        <p class="button-tags">退出通話</p>
+                    </div>
+                </div>
+                <div id="GM-footer-right">
+                    <div class="footer-img-block transparent-background-color">
+                        <img src="figure/info.png" class="buttons" />
+                        <p class="button-tags">會議詳細資料</p>
+                    </div>
+                    <div class="footer-img-block transparent-background-color">
+                        <img src="figure/people.png" class="buttons" />
+                        <p class="button-tags">顯示所有參與者</p>
+                    </div>
+                    <div class="footer-img-block transparent-background-color">
+                        <img src="figure/chat.png" class="buttons" />
+                        <p class="button-tags">與所有參與者進行即時通訊</p>
+                    </div>
+                    <div class="footer-img-block transparent-background-color">
+                        <img src="figure/category.png" class="buttons" />
+                        <p class="button-tags">活動</p>
+                    </div>
+                    <div class="footer-img-block transparent-background-color">
+                        <img src="figure/lock.png" class="buttons" />
+                        <p class="button-tags">主辦人控制項</p>
+                    </div>
+                    <div class="footer-img-block" id="add-button-block">
+                        <img src="figure/person-add.png" class="buttons" id="add-button"/>
+                        <p class="button-tags">新增與會者</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>
