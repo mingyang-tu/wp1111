@@ -1,0 +1,90 @@
+* {
+    font-family: 'Futura';
+    background-color: #eee0d0;
+}
+
+.GameWrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.gameTitle {
+    margin-bottom: 0;
+    font-size: 60px;
+    font-family: 'Futura';
+    font-weight: 600;
+    text-align: center;
+    color: #0f2135;
+}
+
+.number_input {
+    width: 250px;
+    padding: 10px 30px;
+    margin: 20px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0f2135;
+    background-color: #eee0d0;
+    border: 3px solid #0f2135;
+    border-radius: 10px;
+}
+
+.number_input:focus {
+    outline: none;
+}
+
+.number_input::placeholder {
+    font-weight: normal;
+    opacity: 0.6;
+}
+
+.gameBtn {
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 25px;
+    margin: 20px 10px;
+    color: #0f2135;
+    background-color: #eee0d0;
+    border: 5px solid #0f2135;
+}
+
+.gameBtn:hover {
+    cursor: pointer;
+    background-color: #0f2135;
+    color: #eee0d0;
+    border: 5px solid #0f2135;
+}
+
+.disabled {
+    opacity: 0.35;
+}
+
+.disabled:hover {
+    cursor: not-allowed;
+}
+
+.status {
+    font-size: 30px;
+    font-weight: bold;
+    color: #0f2135;
+}
+
+.winMSG {
+    font-size: 40px;
+    font-weight: bold;
+    color: #0f2135;
+    margin-top: 100px;
+}
+
+.history_list {
+    list-style: none;
+    width: 500px;
+    height: 35vh;
+    padding: 0;
+    margin: 10px;
+    overflow: scroll;
+}
