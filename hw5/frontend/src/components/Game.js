@@ -23,7 +23,7 @@ const Game = ({ backToHomeOnClick }) => {
             setHasWon(true);
         }
         else {
-            if (response.length == 4) {
+            if (response.length === 4) {
                 setHistory([{ id: history.length, number, response }, ...history])
             }
             setStatus(response);
