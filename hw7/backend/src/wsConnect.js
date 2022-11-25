@@ -1,4 +1,4 @@
-import { MessageModel, ChatBoxModel } from "./models/chatbox";
+import { MessageModel, ChatBoxModel, LoginModel } from "./models/chatbox";
 
 const validateChatBox = async (name, participants) => {
     let box = await ChatBoxModel.findOne({ name });
@@ -72,6 +72,42 @@ export default {
                     // Respond to client
                     broadcastMessage(["output", [payload]], wss)
                     sendStatus({ type: "success", msg: "Message sent." }, ws)
+                    break;
+                }
+                case "LOGIN": {
+                    const { username, password } = payload;
+                    let user = await LoginModel.findOne({ username });
+                    let valid = await LoginModel.findOne({ username, password });
+                    if (!user) {
+                        sendData(["login", false], ws)
+                        sendStatus({ type: "error", msg: "This account doesn't exist." }, ws)
+                    }
+                    else if (!valid) {
+                        sendData(["login", false], ws)
+                        sendStatus({ type: "error", msg: "Wrong password." }, ws)
+                    }
+                    else {
+                        sendData(["login", true], ws)
+                        sendStatus({ type: "success", msg: "Login success." }, ws)
+                    }
+                    break;
+                }
+                case "SIGNUP": {
+                    const { username, password } = payload;
+                    let user = await LoginModel.findOne({ username });
+                    if (user) {
+                        sendStatus({ type: "error", msg: "This account already exists." }, ws)
+                    }
+                    else {
+                        const newUser = new LoginModel({ username, password });
+                        try {
+                            await newUser.save();
+                        }
+                        catch (e) {
+                            throw new Error("Login DB save error: " + e);
+                        }
+                        sendStatus({ type: "success", msg: "Sign up success." }, ws)
+                    }
                     break;
                 }
 

@@ -1,28 +1,63 @@
+import { useState } from "react";
+import CryptoJS from "crypto-js";
 import Title from "../components/Title";
 import Login from "../components/Login";
+import SignUpModal from "../components/SignUpModal";
 import { useChat } from "./hooks/useChat";
 import { LOCALSTORAGE_KEY } from "../global/constants"
 
 const SignIn = () => {
-    const { me, setMe, setSignedIn, displayStatus } = useChat();
+    const { setStatus, me, setMe, password, setPassword, startLogin, startSignup } = useChat();
 
-    const handleLogin = (name) => {
-        if (!name) {
-            displayStatus({
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const handleLogin = () => {
+        if (!me) {
+            setStatus({
                 type: "error",
-                msg: "Missing user name"
+                msg: "Missing username."
+            });
+        }
+        else if (!password) {
+            setStatus({
+                type: "error",
+                msg: "Missing password."
             });
         }
         else {
-            setSignedIn(true);
+            startLogin({
+                username: me,
+                password: CryptoJS.MD5(password).toString()
+            });
             localStorage.setItem(LOCALSTORAGE_KEY, me);
         }
+    }
+    const onSignup = () => {
+        setModalOpen(true);
     }
 
     return (
         <>
             <Title name={me} />
-            <Login me={me} setName={setMe} onLogin={handleLogin} />
+            <Login
+                me={me}
+                setName={setMe}
+                password={password}
+                setPassword={setPassword}
+                onLogin={handleLogin}
+                onSignup={onSignup}
+            />
+            <SignUpModal
+                open={modalOpen}
+                onCreate={({ username, password }) => {
+                    startSignup({
+                        username: username,
+                        password: CryptoJS.MD5(password).toString()
+                    });
+                    setModalOpen(false);
+                }}
+                onCancel={() => { setModalOpen(false); }}
+            />
         </>
     )
 }

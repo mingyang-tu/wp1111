@@ -9,6 +9,7 @@ const ChatProvider = (props) => {
 
     const [status, setStatus] = useState({});
     const [me, setMe] = useState(savedMe || "");
+    const [password, setPassword] = useState("");
     const [signedIn, setSignedIn] = useState(false);
     const [messages, setMessages] = useState([]);
 
@@ -22,7 +23,7 @@ const ChatProvider = (props) => {
                 let filt = "";
                 if (payload.length > 0) filt = payload[0].chatName;
                 setMessages([
-                    ...messages.filter(({ chatName }) => (chatName !== filt)), 
+                    ...messages.filter(({ chatName }) => (chatName !== filt)),
                     ...payload
                 ]);
                 break;
@@ -32,6 +33,9 @@ const ChatProvider = (props) => {
                 break;
             case "status":
                 setStatus(payload);
+                break;
+            case "login":
+                if (payload) setSignedIn(true);
                 break;
             default:
                 break;
@@ -47,14 +51,17 @@ const ChatProvider = (props) => {
     const sendMessage = (payload) => {
         sendData(["MESSAGE", payload]);
     }
-    const clearMessages = () => {
-        sendData(["clear"]);
-    };
+    const startLogin = (payload) => {
+        sendData(["LOGIN", payload]);
+    }
+    const startSignup = (payload) => {
+        sendData(["SIGNUP", payload]);
+    }
 
     const displayStatus = (s) => {
         if (s.msg) {
             const { type, msg } = s;
-            const content = { content: msg, duration: 0.5 };
+            const content = { content: msg, duration: 1 };
             switch (type) {
                 case "success":
                     message.success(content);
@@ -70,9 +77,13 @@ const ChatProvider = (props) => {
     return (
         <ChatContext.Provider
             value={{
-                status, me, signedIn, messages,
-                setMe, setSignedIn, setMessages,
-                startChat, sendMessage, clearMessages, displayStatus
+                status, setStatus, 
+                me, setMe,
+                password, setPassword,
+                signedIn, setSignedIn,
+                messages, setMessages,
+                startChat, sendMessage, startLogin, startSignup, 
+                displayStatus
             }}
             {...props}
         />

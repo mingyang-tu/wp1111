@@ -16,4 +16,11 @@ const ChatBoxSchema = new Schema({
 });
 const ChatBoxModel = mongoose.model('ChatBox', ChatBoxSchema);
 
-export { MessageModel, ChatBoxModel };
+/******* Login Schema *******/
+const LoginSchema = new Schema({
+    username: { type: String, required: [true, 'Sender field is required.'] },
+    password: { type: String, required: [true, 'Body field is required.'] },
+});
+const LoginModel = mongoose.model('Login', LoginSchema);
+
+export { MessageModel, ChatBoxModel, LoginModel };

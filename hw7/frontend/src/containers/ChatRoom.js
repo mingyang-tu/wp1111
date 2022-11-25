@@ -20,7 +20,7 @@ const FootRef = styled.div`
 `;
 
 const ChatRoom = () => {
-    const { me, messages, setMessages, startChat, sendMessage, displayStatus } = useChat();
+    const { setStatus, me, messages, setMessages, startChat, sendMessage } = useChat();
     const [body, setBody] = useState("");
     const [activeKey, setActiveKey] = useState("");
     const [modalOpen, setModalOpen] = useState(false);
@@ -135,14 +135,14 @@ const ChatRoom = () => {
                 placeholder="Type a message here..."
                 onSearch={(msg) => {
                     if (!msg) {
-                        displayStatus({
+                        setStatus({
                             type: "error",
                             msg: "Please enter a message."
                         });
                         return;
                     }
                     if (!activeKey) {
-                        displayStatus({
+                        setStatus({
                             type: "error",
                             msg: "Please open a chatroom."
                         });

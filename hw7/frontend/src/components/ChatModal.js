@@ -14,7 +14,12 @@ const ChatModal = ({ open, onCreate, onCancel }) => {
                     form.resetFields();
                     onCreate(values);
                 }).catch((e) => {
-                    window.alert(e);
+                    if (e.errorFields) {
+                        window.alert(e.errorFields[0].errors);
+                    }
+                    else {
+                        window.alert(e);
+                    }
                 });
             }}
         >
