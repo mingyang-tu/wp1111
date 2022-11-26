@@ -7,21 +7,29 @@ const StyledMessage = styled.div`
     flex-direction: ${({ isMe }) => (isMe ? "row-reverse" : "row")};
     margin: 10px;
 
-    & p {
-        margin: 0 10px;
+    > p {
+        margin: 0;
         padding: 2px 5px;
         border-radius: 5px;
         background: ${({ isMe }) => (isMe ? "#1890ff" : "#eeeeee")};
         color: ${({ isMe }) => (isMe ? "white" : "black")};
+        overflow-wrap: break-word;
+        max-width: 75%;
     }
+`;
+
+const StyledTag = styled(Tag)`
+    max-width: 15%;
+    overflow-wrap: break-word;
+    white-space: normal;
 `;
 
 const Message = ({ isMe, sender, message }) => {
     return (
         <StyledMessage isMe={isMe}>
-            <Tag color={isMe ? "blue" : "magenta"}  style={{ margin: 0 }}>
+            <StyledTag color={isMe ? "blue" : "magenta"}  style={{ margin: "0 8px" }}>
                 {sender}
-            </Tag>
+            </StyledTag>
             <p>{message}</p>
         </StyledMessage>
     );
