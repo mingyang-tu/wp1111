@@ -15,6 +15,8 @@ const ChatProvider = (props) => {
 
     const client = new WebSocket('ws://localhost:4000');
 
+    const isOpen = (ws) => (ws.readyState === ws.OPEN);
+
     client.onmessage = (byteString) => {
         const { data } = byteString;
         const [task, payload] = JSON.parse(data);
@@ -43,7 +45,15 @@ const ChatProvider = (props) => {
     }
 
     const sendData = async (data) => {
-        client.send(JSON.stringify(data));
+        if (!isOpen(client)) {
+            setStatus({
+                type: "error",
+                msg: "WebSocket is already in CLOSING or CLOSED state."
+            })
+        }
+        else {
+            client.send(JSON.stringify(data));
+        }
     }
     const startChat = (payload) => {
         sendData(["CHAT", payload]);
@@ -77,12 +87,12 @@ const ChatProvider = (props) => {
     return (
         <ChatContext.Provider
             value={{
-                status, setStatus, 
+                status, setStatus,
                 me, setMe,
                 password, setPassword,
                 signedIn, setSignedIn,
                 messages, setMessages,
-                startChat, sendMessage, startLogin, startSignup, 
+                startChat, sendMessage, startLogin, startSignup,
                 displayStatus
             }}
             {...props}
