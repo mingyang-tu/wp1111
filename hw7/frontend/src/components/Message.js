@@ -4,25 +4,22 @@ import { Tag } from "antd";
 const StyledMessage = styled.div`
     display: flex;
     align-items: center;
-    flex-direction: ${({ isMe }) => (isMe ? 'row-reverse' : 'row')};
-    margin: 8px 10px;
+    flex-direction: ${({ isMe }) => (isMe ? "row-reverse" : "row")};
+    margin: 10px;
 
-    & p: first-child {
-        margin: 0 5px;
-    }
-    & p: last-child {
+    & p {
+        margin: 0 10px;
         padding: 2px 5px;
         border-radius: 5px;
-        background: #eee;
-        color: gray;
-        margin: auto 0;
+        background: ${({ isMe }) => (isMe ? "#1890ff" : "#eeeeee")};
+        color: ${({ isMe }) => (isMe ? "white" : "black")};
     }
 `;
 
 const Message = ({ isMe, sender, message }) => {
     return (
         <StyledMessage isMe={isMe}>
-            <Tag color={isMe ? "blue" : "magenta"} style={{ margin: "0 8px" }}>
+            <Tag color={isMe ? "blue" : "magenta"}  style={{ margin: 0 }}>
                 {sender}
             </Tag>
             <p>{message}</p>

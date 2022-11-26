@@ -13,7 +13,9 @@ const ChatBoxesWrapper = styled(Tabs)`
     border-radius: 10px;
     margin: 20px;
     padding: 20px;
-    overflow: auto;
+    .ant-tabs-content-holder {
+        overflow: auto;
+    }
 `;
 const FootRef = styled.div`
     height: 20px;
@@ -30,7 +32,7 @@ const ChatRoom = () => {
     // 訊息出現就拉到最底部
     const msgFooter = useRef()
     const scrollToBottom = () => {
-        msgFooter.current?.scrollIntoView({ behavior: 'smooth', block: "start" });
+        msgFooter.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
     // 顯示 messages 的 DOM
@@ -105,6 +107,7 @@ const ChatRoom = () => {
             <>
                 <ChatBoxesWrapper
                     type="editable-card"
+                    tabBarStyle={{height: 40}}
                     activeKey={activeKey}
                     onChange={(key) => {
                         setActiveKey(key);
