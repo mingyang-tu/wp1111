@@ -27,7 +27,7 @@ const SignIn = () => {
         else {
             startLogin({
                 username: me,
-                password: CryptoJS.MD5(password).toString()
+                password: CryptoJS.SHA256(password).toString()
             });
             localStorage.setItem(LOCALSTORAGE_KEY, me);
         }
@@ -52,7 +52,7 @@ const SignIn = () => {
                 onCreate={({ username, password }) => {
                     startSignup({
                         username: username,
-                        password: CryptoJS.MD5(password).toString()
+                        password: CryptoJS.SHA256(password).toString()
                     });
                     setModalOpen(false);
                 }}
