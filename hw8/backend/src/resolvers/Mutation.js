@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { checkOutChatBox, makeChatName } from "./utils";
 
 const Mutation = {
@@ -18,7 +17,6 @@ const Mutation = {
                 ChatBoxModel
             });
             const newMsg = {
-                id: uuidv4(),
                 sender: from,
                 body
             };

@@ -20,7 +20,6 @@ type ChatBox {
 }
 
 type Message {
-  id: ID!
   sender: String!
   body: String!
 }

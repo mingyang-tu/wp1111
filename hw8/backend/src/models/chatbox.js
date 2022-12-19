@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 const ChatBoxSchema = new Schema({
     chatName: { type: String, required: [true, "Name field is required."] },
     messages: [{
-        id: { type: String },
         sender: { type: String },
         body: { type: String }
     }],

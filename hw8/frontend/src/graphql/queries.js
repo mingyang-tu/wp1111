@@ -5,7 +5,6 @@ export const CHATBOX_QUERY = gql`
         chatBox(name1: $name1, name2: $name2) {
             chatName
             messages {
-                id
                 body
                 sender
             }

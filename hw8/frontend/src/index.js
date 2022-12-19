@@ -46,7 +46,6 @@ const client = new ApolloClient({
         dataIdFromObject(responseObject) {
             switch (responseObject.__typename) {
                 case "ChatBox": return `ChatBox:${responseObject.chatName}`;
-                case "Message": return `Message:${responseObject.id}`;
                 default: return defaultDataIdFromObject(responseObject);
             }
         }

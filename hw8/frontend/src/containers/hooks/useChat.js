@@ -45,6 +45,7 @@ const ChatProvider = (props) => {
                     __typename: "ChatBox"
                 });
                 cache.evict({ id: normalizedId });
+                cache.evict({ id: "ROOT_QUERY", fieldName: "chatBox", args: { name1, name2 }});
                 cache.gc();
             }
         });
