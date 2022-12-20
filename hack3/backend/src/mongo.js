@@ -14,7 +14,6 @@ async function connect() {
   mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: "hack3"
   }).then(async res => {
     dataInit();
     console.log("MongoDB connection created");

@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/client';
+import { useState, useEffect } from 'react';
 
 import { GET_ITEMS_QUERY } from '../graphql/queries';
 
@@ -8,7 +9,10 @@ import Category from './Category';
 function Analytics() {
   // TODO 2.2 Use the useQuery hook to get items from backend
   const { data: itemsData } = useQuery(GET_ITEMS_QUERY);
-  const { items } = itemsData;
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    if (itemsData) setItems(itemsData.items)
+  }, [itemsData])
   // TODO 2.2 End
 
 
