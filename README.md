@@ -4,28 +4,28 @@
 
 ---
 
-- HW1 HTML&CSS -- Fake Google Meet  <font color=#49E3A0>**(perfect)**</font>
+- HW1 HTML&CSS -- Fake Google Meet  **(perfect)**
 
-- HW2 JavaScript Practice -- Fake Google Meet  <font color=#49E3A0>**(perfect)**</font>
+- HW2 JavaScript Practice -- Fake Google Meet  **(perfect)**
 
-- HW3 React.js Practice -- TODO List  <font color=#49E3A0>**(perfect)**</font>
+- HW3 React.js Practice -- TODO List  **(perfect)**
 
-- HW4 React App Development -- MineSweeper  <font color=#49E3A0>**(perfect)**</font>
+- HW4 React App Development -- MineSweeper  **(perfect)**
 
-- HW5 Backend Practice -- Number Guessing Game  <font color=#49E3A0>**(perfect)**</font>
+- HW5 Backend Practice -- Number Guessing Game  **(perfect)**
 
-- HW6 React + Axios + Express + Mongoose  <font color=#52CFF2>**(pass)**</font>
+- HW6 React + Axios + Express + Mongoose  **(pass)**
 
-- HW7 Full-Stack Application -- ChatRoom  <font color=#49E3A0>**(perfect)**</font>
+- HW7 Full-Stack Application -- ChatRoom  **(perfect)**
 
-- HW8 ChatRoom in GraphQL  <font color=#52CFF2>**(pass)**</font>
+- HW8 ChatRoom in GraphQL  **(pass)**
 
 - HW9 Deployment Practice
 
 ---
 
-- Hack1 -- Wordle  <font color=#49E3A0>**(100)**</font>
+- Hack1 -- Wordle  **(100)**
 
-- Hack2 -- Hugo Eat  <font color=#52CFF2>**(70)**</font>→<font color=#49E3A0>**(100)**</font>
+- Hack2 -- Hugo Eat  **(70)**→**(100)**
 
-- Hack3 -- Budgetly Light  <font color=#49E3A0>**(100)**</font>
+- Hack3 -- Budgetly Light  **(100)**
