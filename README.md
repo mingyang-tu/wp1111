@@ -26,6 +26,6 @@
 
 - Hack1 -- Wordle  **(100)**
 
-- Hack2 -- Hugo Eat  **(70)**→**(100)**
+- Hack2 -- Hugo Eat  **(70)→(100)**
 
 - Hack3 -- Budgetly Light  **(100)**
