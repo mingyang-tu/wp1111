@@ -20,6 +20,6 @@
 
 - 發現要先建好 Database 才會 work
 
-<img title="" src="file:///Users/tmy/Desktop/wp1111/hw9/figures/database.png" alt="">
+<img title="" src="./figures/database.png" alt="">
 
 - 原本是想 deploy HW8，但助教沒有教遇到 GraphQL yoga 怎麼辦，上網查了一堆也沒有試成功。
