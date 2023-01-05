@@ -20,7 +20,7 @@
 
 - HW8 ChatRoom in GraphQL  **(pass)**
 
-- HW9 Deployment Practice
+- HW9 Deployment Practice  **(pass)**
 
 ---
 
